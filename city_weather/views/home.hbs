@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="text">
+        <h1>CHECK THE WEATHER OF YOUR CITY.</h1>
+    </div>
+
+   <form action="/search" method="post">
+   <input type="text" name="cityname" required>
+   <input type="submit" class="submit" >
+   </form>
+
+       <section class="weather_box">
+        <div class="weather_div">
+            <div class="icon">
+                   <i class="fa-solid fa-cloud fa-2x"></i>
+            </div>
+            <span class="value city">CITY : {{KANPUR}}</span>
+            <span class="value weather">WEATHER : {{WEATHER}}</span>
+             <span class="value temperature"> TEMPERATURE : {{TEMPERATURE}} <i class="fa-solid fa-temperature-full"></i></span>
+            <span class="value wind">WIND : {{WIND}}  <i class="fa-solid fa-wind"></i></span>
+        </div>
+
+        <div class="wave wave-1"></div>
+         <div class="wave wave-2"></div>
+          <div class="wave wave-3"></div>
+    </section> 
+    
+    <script>
+        const fav_icon = document.querySelector(".fa-solid");
+        const icon = document.querySelector(".icon");
+        const body = document.querySelector("body");
+        const weather_box = document.querySelector(".weather_box");
+        const submit = document.querySelector(".submit");
+       let temp_icon = '%STATUS%';
+    
+
+       if(temp_icon == 'Clear' || temp_icon == 'Sunny'){
+        icon.innerHTML = `<i class="fa-solid fa-sun fa-2x"></i>`; 
+        icon.style.color = "yellow";
+       }else if(temp_icon == "Smoke" || temp_icon == "Clouds"){
+         icon.innerHTML = `<i class="fa-solid fa-cloud fa-2x"></i>`; 
+         icon.style.color = "darkgrey";
+       }else if(temp_icon == "Haze"){
+         icon.innerHTML = `<i class="fa-solid fa-cloud-sun fa-2x"></i>`; 
+         icon.style.color = "orangered";
+       }
+
+    </script> 
+ 
+</body>
+</html> 
